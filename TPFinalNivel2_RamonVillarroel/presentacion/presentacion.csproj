@@ -46,17 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Articulo.cs">
+    <Compile Include="ArticuloDetalle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Articulo.Designer.cs">
-      <DependentUpon>Articulo.cs</DependentUpon>
+    <Compile Include="ArticuloDetalle.Designer.cs">
+      <DependentUpon>ArticuloDetalle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Busqueda.cs">
+    <Compile Include="ArticuloVentana.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Busqueda.Designer.cs">
-      <DependentUpon>Busqueda.cs</DependentUpon>
+    <Compile Include="ArticuloVentana.Designer.cs">
+      <DependentUpon>ArticuloVentana.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusquedaVentana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BusquedaVentana.Designer.cs">
+      <DependentUpon>BusquedaVentana.cs</DependentUpon>
     </Compile>
     <Compile Include="CatalogoApp.cs">
       <SubType>Form</SubType>
@@ -66,11 +72,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Articulo.resx">
-      <DependentUpon>Articulo.cs</DependentUpon>
+    <EmbeddedResource Include="ArticuloDetalle.resx">
+      <DependentUpon>ArticuloDetalle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Busqueda.resx">
-      <DependentUpon>Busqueda.cs</DependentUpon>
+    <EmbeddedResource Include="ArticuloVentana.resx">
+      <DependentUpon>ArticuloVentana.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusquedaVentana.resx">
+      <DependentUpon>BusquedaVentana.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CatalogoApp.resx">
       <DependentUpon>CatalogoApp.cs</DependentUpon>

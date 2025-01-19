@@ -1,6 +1,6 @@
 ﻿namespace presentacion
 {
-    partial class Articulo
+    partial class ArticuloVentana
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Articulo));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArticuloVentana));
             this.SuspendLayout();
             // 
             // Articulo

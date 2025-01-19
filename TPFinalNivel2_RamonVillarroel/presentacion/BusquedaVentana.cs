@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace presentacion
 {
-    public partial class Busqueda : Form
+    public partial class BusquedaVentana : Form
     {
-        public Busqueda()
+        public BusquedaVentana()
         {
             InitializeComponent();
         }

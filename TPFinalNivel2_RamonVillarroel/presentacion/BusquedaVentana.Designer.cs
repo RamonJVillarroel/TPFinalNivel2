@@ -1,6 +1,6 @@
 ﻿namespace presentacion
 {
-    partial class Busqueda
+    partial class BusquedaVentana
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Busqueda));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BusquedaVentana));
             this.menuBusqueda = new System.Windows.Forms.MenuStrip();
             this.BusquedaNombre = new System.Windows.Forms.ToolStripMenuItem();
             this.cdcdcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();

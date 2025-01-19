@@ -34,8 +34,12 @@
             this.toolNavegacion = new System.Windows.Forms.ToolStrip();
             this.toolBusqueda = new System.Windows.Forms.ToolStripButton();
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
+            this.pboxArticulo = new System.Windows.Forms.PictureBox();
+            this.btnDetalle = new System.Windows.Forms.Button();
+            this.expDetalle = new System.Windows.Forms.Label();
             this.toolNavegacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStripSeparator1
@@ -61,9 +65,9 @@
             this.toolStripSeparator1,
             this.toolNuevoArticulo,
             this.toolBusqueda});
-            this.toolNavegacion.Location = new System.Drawing.Point(712, 0);
+            this.toolNavegacion.Location = new System.Drawing.Point(572, 0);
             this.toolNavegacion.Name = "toolNavegacion";
-            this.toolNavegacion.Size = new System.Drawing.Size(24, 320);
+            this.toolNavegacion.Size = new System.Drawing.Size(24, 262);
             this.toolNavegacion.TabIndex = 0;
             this.toolNavegacion.Text = "Menu";
             // 
@@ -81,17 +85,51 @@
             // dgvArticulos
             // 
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvArticulos.Location = new System.Drawing.Point(-2, 25);
+            this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvArticulos.Location = new System.Drawing.Point(12, 50);
             this.dgvArticulos.Name = "dgvArticulos";
-            this.dgvArticulos.Size = new System.Drawing.Size(711, 150);
+            this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvArticulos.Size = new System.Drawing.Size(280, 168);
             this.dgvArticulos.TabIndex = 1;
+            this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
+            // 
+            // pboxArticulo
+            // 
+            this.pboxArticulo.Location = new System.Drawing.Point(298, 50);
+            this.pboxArticulo.Name = "pboxArticulo";
+            this.pboxArticulo.Size = new System.Drawing.Size(265, 168);
+            this.pboxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxArticulo.TabIndex = 2;
+            this.pboxArticulo.TabStop = false;
+            // 
+            // btnDetalle
+            // 
+            this.btnDetalle.Location = new System.Drawing.Point(35, 21);
+            this.btnDetalle.Name = "btnDetalle";
+            this.btnDetalle.Size = new System.Drawing.Size(75, 23);
+            this.btnDetalle.TabIndex = 3;
+            this.btnDetalle.Text = "Ver Detalle";
+            this.btnDetalle.UseVisualStyleBackColor = true;
+            this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
+            // 
+            // expDetalle
+            // 
+            this.expDetalle.AutoSize = true;
+            this.expDetalle.Location = new System.Drawing.Point(116, 26);
+            this.expDetalle.Name = "expDetalle";
+            this.expDetalle.Size = new System.Drawing.Size(213, 13);
+            this.expDetalle.TabIndex = 4;
+            this.expDetalle.Text = "Permite ver el detalle de la fila seleccionada";
             // 
             // CatalogoApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(736, 320);
+            this.ClientSize = new System.Drawing.Size(596, 262);
+            this.Controls.Add(this.expDetalle);
+            this.Controls.Add(this.btnDetalle);
+            this.Controls.Add(this.pboxArticulo);
             this.Controls.Add(this.dgvArticulos);
             this.Controls.Add(this.toolNavegacion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -99,9 +137,11 @@
             this.Name = "CatalogoApp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Catalogo App";
+            this.Load += new System.EventHandler(this.CatalogoApp_Load);
             this.toolNavegacion.ResumeLayout(false);
             this.toolNavegacion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxArticulo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,6 +154,9 @@
         private System.Windows.Forms.ToolStrip toolNavegacion;
         private System.Windows.Forms.ToolStripButton toolBusqueda;
         private System.Windows.Forms.DataGridView dgvArticulos;
+        private System.Windows.Forms.PictureBox pboxArticulo;
+        private System.Windows.Forms.Button btnDetalle;
+        private System.Windows.Forms.Label expDetalle;
     }
 }
 
