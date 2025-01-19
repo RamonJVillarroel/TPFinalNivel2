@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace presentacion
 {
-    public partial class Form1 : Form
+    public partial class Busqueda : Form
     {
-        public Form1()
+        public Busqueda()
         {
             InitializeComponent();
+        }
+
+        private void BusquedaNombre_DoubleClick(object sender, EventArgs e)
+        {
+            
         }
     }
 }
