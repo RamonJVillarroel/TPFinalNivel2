@@ -37,6 +37,8 @@
             this.pboxArticulo = new System.Windows.Forms.PictureBox();
             this.btnDetalle = new System.Windows.Forms.Button();
             this.expDetalle = new System.Windows.Forms.Label();
+            this.toolNuevaCat = new System.Windows.Forms.ToolStripButton();
+            this.toolMarca = new System.Windows.Forms.ToolStripButton();
             this.toolNavegacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxArticulo)).BeginInit();
@@ -45,7 +47,7 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(21, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(29, 6);
             // 
             // toolNuevoArticulo
             // 
@@ -64,8 +66,10 @@
             this.toolNavegacion.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator1,
             this.toolNuevoArticulo,
+            this.toolNuevaCat,
+            this.toolMarca,
             this.toolBusqueda});
-            this.toolNavegacion.Location = new System.Drawing.Point(572, 0);
+            this.toolNavegacion.Location = new System.Drawing.Point(523, 0);
             this.toolNavegacion.Name = "toolNavegacion";
             this.toolNavegacion.Size = new System.Drawing.Size(24, 262);
             this.toolNavegacion.TabIndex = 0;
@@ -78,7 +82,7 @@
             this.toolBusqueda.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolBusqueda.Margin = new System.Windows.Forms.Padding(0, 5, 0, 2);
             this.toolBusqueda.Name = "toolBusqueda";
-            this.toolBusqueda.Size = new System.Drawing.Size(21, 20);
+            this.toolBusqueda.Size = new System.Drawing.Size(29, 20);
             this.toolBusqueda.Text = "Nueva Busqueda";
             this.toolBusqueda.Click += new System.EventHandler(this.toolBusqueda_Click);
             // 
@@ -86,18 +90,18 @@
             // 
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvArticulos.Location = new System.Drawing.Point(12, 50);
+            this.dgvArticulos.Location = new System.Drawing.Point(35, 50);
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulos.Size = new System.Drawing.Size(280, 168);
+            this.dgvArticulos.Size = new System.Drawing.Size(280, 200);
             this.dgvArticulos.TabIndex = 1;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // pboxArticulo
             // 
-            this.pboxArticulo.Location = new System.Drawing.Point(298, 50);
+            this.pboxArticulo.Location = new System.Drawing.Point(321, 50);
             this.pboxArticulo.Name = "pboxArticulo";
-            this.pboxArticulo.Size = new System.Drawing.Size(265, 168);
+            this.pboxArticulo.Size = new System.Drawing.Size(164, 200);
             this.pboxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pboxArticulo.TabIndex = 2;
             this.pboxArticulo.TabStop = false;
@@ -121,12 +125,30 @@
             this.expDetalle.TabIndex = 4;
             this.expDetalle.Text = "Permite ver el detalle de la fila seleccionada";
             // 
+            // toolNuevaCat
+            // 
+            this.toolNuevaCat.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolNuevaCat.Image = ((System.Drawing.Image)(resources.GetObject("toolNuevaCat.Image")));
+            this.toolNuevaCat.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolNuevaCat.Name = "toolNuevaCat";
+            this.toolNuevaCat.Size = new System.Drawing.Size(29, 20);
+            this.toolNuevaCat.Text = "Nueva Categoria";
+            // 
+            // toolMarca
+            // 
+            this.toolMarca.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolMarca.Image = ((System.Drawing.Image)(resources.GetObject("toolMarca.Image")));
+            this.toolMarca.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolMarca.Name = "toolMarca";
+            this.toolMarca.Size = new System.Drawing.Size(29, 20);
+            this.toolMarca.Text = "Nueva Marca";
+            // 
             // CatalogoApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(596, 262);
+            this.ClientSize = new System.Drawing.Size(547, 262);
             this.Controls.Add(this.expDetalle);
             this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.pboxArticulo);
@@ -157,6 +179,8 @@
         private System.Windows.Forms.PictureBox pboxArticulo;
         private System.Windows.Forms.Button btnDetalle;
         private System.Windows.Forms.Label expDetalle;
+        private System.Windows.Forms.ToolStripButton toolNuevaCat;
+        private System.Windows.Forms.ToolStripButton toolMarca;
     }
 }
 

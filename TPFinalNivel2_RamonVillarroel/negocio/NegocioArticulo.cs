@@ -48,5 +48,34 @@ namespace negocio
         }
 
 
+        public void NuevoArticulo(Articulo NuevoArt)
+        {
+
+            try
+            {
+                string consulta = "insert ARTICULOS VALUES(@Codigo,@NombreArt,@Descripcion,@IdMarca,@IdCategoria,@img,@Precio);";
+                AccesoDatos datos = new AccesoDatos();
+                datos.nuevaConsulta(consulta);
+                datos.Parametro("@Codigo", NuevoArt.CodArticulo);
+                datos.Parametro("@Nombre",NuevoArt.NombreArticulo);
+                datos.Parametro("@Descripcion",NuevoArt.Descripcion);
+                datos.Parametro("@IdMarca",NuevoArt.Marca.IdMarca);
+                datos.Parametro("@IdCategoria",NuevoArt.Categoria.IdCategoria);
+                datos.Parametro("@img",NuevoArt.Imagen);
+                datos.Parametro("@Precio",NuevoArt.Precio);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                AccesoDatos datos = new AccesoDatos();
+                datos.terminarConexion();
+            }
+        }
+                
+
     }
 }

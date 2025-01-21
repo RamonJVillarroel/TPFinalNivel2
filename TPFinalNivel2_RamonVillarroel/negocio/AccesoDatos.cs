@@ -66,6 +66,5 @@ namespace negocio
             conexion.Close();
         }
 
-
     }
 }
