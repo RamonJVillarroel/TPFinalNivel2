@@ -50,19 +50,19 @@ namespace negocio
 
         public void NuevoArticulo(Articulo NuevoArt)
         {
-
+                 AccesoDatos datos = new AccesoDatos();
             try
             {
-                string consulta = "insert ARTICULOS VALUES(@Codigo,@NombreArt,@Descripcion,@IdMarca,@IdCategoria,@img,@Precio);";
-                AccesoDatos datos = new AccesoDatos();
-                datos.nuevaConsulta(consulta);
+                string consulta = "insert into ARTICULOS( Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl,Precio) VALUES(@Codigo,@NombreArt,@Descripcion,2,1,@img,@Precio);";
+              
                 datos.Parametro("@Codigo", NuevoArt.CodArticulo);
-                datos.Parametro("@Nombre",NuevoArt.NombreArticulo);
+                datos.Parametro("@NombreArt",NuevoArt.NombreArticulo);
                 datos.Parametro("@Descripcion",NuevoArt.Descripcion);
-                datos.Parametro("@IdMarca",NuevoArt.Marca.IdMarca);
-                datos.Parametro("@IdCategoria",NuevoArt.Categoria.IdCategoria);
+                //datos.Parametro("@IdMarca",NuevoArt.Marca.IdMarca);
+                //datos.Parametro("@IdCategoria",NuevoArt.Categoria.IdCategoria);
                 datos.Parametro("@img",NuevoArt.Imagen);
-                datos.Parametro("@Precio",NuevoArt.Precio);
+                datos.Parametro("@Precio", NuevoArt.Precio);
+                datos.nuevaConsulta(consulta);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -71,7 +71,7 @@ namespace negocio
             }
             finally
             {
-                AccesoDatos datos = new AccesoDatos();
+                
                 datos.terminarConexion();
             }
         }

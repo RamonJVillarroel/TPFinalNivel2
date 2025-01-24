@@ -225,6 +225,7 @@
             this.Name = "ArticuloVentana";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Articulo";
+          
             ((System.ComponentModel.ISupportInitialize)(this.pboxImgArt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -25,6 +25,7 @@ namespace presentacion
         {
             ArticuloVentana articulo = new ArticuloVentana();
             articulo.ShowDialog();
+            cargarArticulos();
         }
 
         private void toolBusqueda_Click(object sender, EventArgs e)
