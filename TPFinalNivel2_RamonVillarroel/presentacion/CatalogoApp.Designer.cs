@@ -32,13 +32,14 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolNuevoArticulo = new System.Windows.Forms.ToolStripButton();
             this.toolNavegacion = new System.Windows.Forms.ToolStrip();
+            this.toolNuevaCat = new System.Windows.Forms.ToolStripButton();
+            this.toolMarca = new System.Windows.Forms.ToolStripButton();
             this.toolBusqueda = new System.Windows.Forms.ToolStripButton();
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
             this.pboxArticulo = new System.Windows.Forms.PictureBox();
             this.btnDetalle = new System.Windows.Forms.Button();
             this.expDetalle = new System.Windows.Forms.Label();
-            this.toolNuevaCat = new System.Windows.Forms.ToolStripButton();
-            this.toolMarca = new System.Windows.Forms.ToolStripButton();
+            this.toolEliminar = new System.Windows.Forms.ToolStripButton();
             this.toolNavegacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxArticulo)).BeginInit();
@@ -56,7 +57,7 @@
             this.toolNuevoArticulo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolNuevoArticulo.Margin = new System.Windows.Forms.Padding(0, 5, 0, 2);
             this.toolNuevoArticulo.Name = "toolNuevoArticulo";
-            this.toolNuevoArticulo.Size = new System.Drawing.Size(21, 20);
+            this.toolNuevoArticulo.Size = new System.Drawing.Size(29, 20);
             this.toolNuevoArticulo.Text = "Nuevo Articulo";
             this.toolNuevoArticulo.Click += new System.EventHandler(this.toolNuevoArticulo_Click);
             // 
@@ -68,12 +69,31 @@
             this.toolNuevoArticulo,
             this.toolNuevaCat,
             this.toolMarca,
-            this.toolBusqueda});
-            this.toolNavegacion.Location = new System.Drawing.Point(523, 0);
+            this.toolBusqueda,
+            this.toolEliminar});
+            this.toolNavegacion.Location = new System.Drawing.Point(515, 0);
             this.toolNavegacion.Name = "toolNavegacion";
-            this.toolNavegacion.Size = new System.Drawing.Size(24, 262);
+            this.toolNavegacion.Size = new System.Drawing.Size(32, 262);
             this.toolNavegacion.TabIndex = 0;
             this.toolNavegacion.Text = "Menu";
+            // 
+            // toolNuevaCat
+            // 
+            this.toolNuevaCat.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolNuevaCat.Image = ((System.Drawing.Image)(resources.GetObject("toolNuevaCat.Image")));
+            this.toolNuevaCat.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolNuevaCat.Name = "toolNuevaCat";
+            this.toolNuevaCat.Size = new System.Drawing.Size(29, 20);
+            this.toolNuevaCat.Text = "Nueva Categoria";
+            // 
+            // toolMarca
+            // 
+            this.toolMarca.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolMarca.Image = ((System.Drawing.Image)(resources.GetObject("toolMarca.Image")));
+            this.toolMarca.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolMarca.Name = "toolMarca";
+            this.toolMarca.Size = new System.Drawing.Size(29, 20);
+            this.toolMarca.Text = "Nueva Marca";
             // 
             // toolBusqueda
             // 
@@ -125,23 +145,15 @@
             this.expDetalle.TabIndex = 4;
             this.expDetalle.Text = "Permite ver el detalle de la fila seleccionada";
             // 
-            // toolNuevaCat
+            // toolEliminar
             // 
-            this.toolNuevaCat.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolNuevaCat.Image = ((System.Drawing.Image)(resources.GetObject("toolNuevaCat.Image")));
-            this.toolNuevaCat.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolNuevaCat.Name = "toolNuevaCat";
-            this.toolNuevaCat.Size = new System.Drawing.Size(29, 20);
-            this.toolNuevaCat.Text = "Nueva Categoria";
-            // 
-            // toolMarca
-            // 
-            this.toolMarca.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolMarca.Image = ((System.Drawing.Image)(resources.GetObject("toolMarca.Image")));
-            this.toolMarca.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolMarca.Name = "toolMarca";
-            this.toolMarca.Size = new System.Drawing.Size(29, 20);
-            this.toolMarca.Text = "Nueva Marca";
+            this.toolEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolEliminar.Image = ((System.Drawing.Image)(resources.GetObject("toolEliminar.Image")));
+            this.toolEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolEliminar.Name = "toolEliminar";
+            this.toolEliminar.Size = new System.Drawing.Size(29, 20);
+            this.toolEliminar.Text = "Elimina el articulo";
+            this.toolEliminar.Click += new System.EventHandler(this.toolEliminar_Click);
             // 
             // CatalogoApp
             // 
@@ -181,6 +193,7 @@
         private System.Windows.Forms.Label expDetalle;
         private System.Windows.Forms.ToolStripButton toolNuevaCat;
         private System.Windows.Forms.ToolStripButton toolMarca;
+        private System.Windows.Forms.ToolStripButton toolEliminar;
     }
 }
 

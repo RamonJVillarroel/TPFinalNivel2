@@ -96,6 +96,19 @@ namespace negocio
             catch (Exception ex) { throw ex; }
             finally { datos.terminarConexion(); }
         }
+        public void eliminar(int IdArticulo)
+        {
+            try
+            {
+                AccesoDatos datos = new AccesoDatos();
+                string consulta = "delete From ARTICULOS where Id=@IdArticulo;";
+                datos.Parametro("@IdArticulo", IdArticulo);
+                datos.nuevaConsulta(consulta);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex) { throw ex; }
 
+
+        }
     }
 }

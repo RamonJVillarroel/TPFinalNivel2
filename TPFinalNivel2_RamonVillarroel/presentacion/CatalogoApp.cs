@@ -90,8 +90,31 @@ namespace presentacion
                     articuloDetalle.ShowDialog();
                 }
                 }catch (Exception ex) { MessageBox.Show(ex.Message); }
-               
-           
+
+
+        }
+
+        private void toolEliminar_Click(object sender, EventArgs e)
+        {
+            eliminar();
+        }
+        private void eliminar(bool logico = false)
+        {
+            NegocioArticulo articuloNegocio = new NegocioArticulo();
+            Articulo seleccionado;
+            try
+            {
+                DialogResult result = MessageBox.Show("Quieres eliminar este activo?", "eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    articuloNegocio.eliminar(seleccionado.IdArticulo);
+                    cargarArticulos();
+                }
+
+            }
+            catch (Exception ex) { throw ex; }
+
         }
     }
 }
