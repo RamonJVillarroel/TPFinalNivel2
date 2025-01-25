@@ -53,13 +53,13 @@ namespace negocio
                  AccesoDatos datos = new AccesoDatos();
             try
             {
-                string consulta = "insert into ARTICULOS( Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl,Precio) VALUES(@Codigo,@NombreArt,@Descripcion,2,1,@img,@Precio);";
+                string consulta = "insert into ARTICULOS( Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl,Precio) VALUES(@Codigo,@NombreArt,@Descripcion,@IdCategoria,@IdMarca,@img,@Precio);";
               
                 datos.Parametro("@Codigo", NuevoArt.CodArticulo);
                 datos.Parametro("@NombreArt",NuevoArt.NombreArticulo);
                 datos.Parametro("@Descripcion",NuevoArt.Descripcion);
-                //datos.Parametro("@IdMarca",NuevoArt.Marca.IdMarca);
-                //datos.Parametro("@IdCategoria",NuevoArt.Categoria.IdCategoria);
+                datos.Parametro("@IdMarca",NuevoArt.Marca.IdMarca);
+                datos.Parametro("@IdCategoria",NuevoArt.Categoria.IdCategoria);
                 datos.Parametro("@img",NuevoArt.Imagen);
                 datos.Parametro("@Precio", NuevoArt.Precio);
                 datos.nuevaConsulta(consulta);
@@ -75,7 +75,27 @@ namespace negocio
                 datos.terminarConexion();
             }
         }
-                
+
+        public void EditarArticulo(Articulo articuloEditar) {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                string consulta = "update ARTICULOS SET Codigo=@Codigo,Nombre=@NombreArt, Descripcion=@Descripcion, IdCategoria=@IdCategoria, IdMarca=@IdMarca, ImagenUrl=@img,Precio=@Precio WHERE id =@IdArticulo;";
+                datos.Parametro("@Codigo", articuloEditar.CodArticulo);
+                datos.Parametro("@NombreArt", articuloEditar.NombreArticulo);
+                datos.Parametro("@Descripcion", articuloEditar.Descripcion);
+                datos.Parametro("@IdMarca",articuloEditar.Marca.IdMarca);
+                datos.Parametro("@IdCategoria",articuloEditar.Categoria.IdCategoria);
+                datos.Parametro("@img", articuloEditar.Imagen);
+                datos.Parametro("@Precio", articuloEditar.Precio);
+                datos.Parametro("@IdArticulo", articuloEditar.IdArticulo);
+
+                datos.nuevaConsulta(consulta);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex) { throw ex; }
+            finally { datos.terminarConexion(); }
+        }
 
     }
 }

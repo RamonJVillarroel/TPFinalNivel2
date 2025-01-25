@@ -9,25 +9,45 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using utilitarios;
+using dominio;
 namespace presentacion
 {
     public partial class ArticuloDetalle : Form
     {
-        
-  
-        public ArticuloDetalle(string detalleNombre, string detalleCodigo, string detalleDescripcion, decimal detallePrecio, string detalleMarca, string detalleCategoria, string img)
+
+        private Articulo articuloDetalle = null;
+        public ArticuloDetalle(Articulo articulo)
         {
             InitializeComponent();
-            txtNombre.Text = detalleNombre;
-            txtCodArt.Text = detalleCodigo;
-            txtDes.Text = detalleDescripcion;
-            txtdiner.Text = (detallePrecio).ToString();
-            txtMar.Text = detalleMarca;
-            txtCate.Text = detalleCategoria;
+            articuloDetalle = articulo;
+            txtNombre.Text = articulo.NombreArticulo;
+            txtCodArt.Text = articulo.CodArticulo;
+            txtDes.Text = articulo.Descripcion;
+            txtdiner.Text = articulo.Precio.ToString();
+            txtMar.Text = articulo.Marca.NombreMarca;
+            txtCate.Text = articulo.Categoria.NombreCategoria;
             util utilitarios = new util();
-            utilitarios.CargarImagen(pboxDetalle, img);
+            utilitarios.CargarImagen(pboxDetalle, articulo.Imagen);
         }
-        
 
+        private void btnEditar_Click(object sender, EventArgs e)
+        {   
+            try
+            {
+                articuloDetalle.CodArticulo = txtCodArt.Text;
+                articuloDetalle.NombreArticulo= txtNombre.Text;
+                articuloDetalle.Descripcion =txtDes.Text;
+                articuloDetalle.Precio = decimal.Parse(txtdiner.Text);
+                articuloDetalle.Imagen = pboxDetalle.ImageLocation;
+                ArticuloVentana ArticuloEditor = new ArticuloVentana(articuloDetalle);
+                ArticuloEditor.ShowDialog();
+                Close();
+            }
+            catch (Exception ex) { throw ex; }
+          
+       
+
+        }
+      
     }
 }

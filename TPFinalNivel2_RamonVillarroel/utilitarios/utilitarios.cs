@@ -34,5 +34,6 @@ namespace utilitarios
             dataGrid.Columns[columna].Visible = false;
         }
 
+  
     }
 }

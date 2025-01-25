@@ -86,17 +86,10 @@ namespace presentacion
                 if (dgvArticulos.CurrentRow != null)
                 {
                     Articulo ArticuloSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                    string detalleNombre = ArticuloSeleccionado.NombreArticulo;
-                    string detalleCodigo = ArticuloSeleccionado.CodArticulo;
-                    string detalleDescripcion = ArticuloSeleccionado.Descripcion;
-                    decimal detallePrecio = ArticuloSeleccionado.Precio;
-                    string detalleMarca = ArticuloSeleccionado.Marca.NombreMarca;
-                    string detalleCategoria = ArticuloSeleccionado.Categoria.NombreCategoria;
-                    string img = ArticuloSeleccionado.Imagen;
-                    ArticuloDetalle articuloDetalle = new ArticuloDetalle(detalleNombre,detalleCodigo,detalleDescripcion,detallePrecio,detalleMarca,detalleCategoria,img);
+                    ArticuloDetalle articuloDetalle = new ArticuloDetalle(ArticuloSeleccionado);
                     articuloDetalle.ShowDialog();
                 }
-                }catch (Exception ex) { throw ex; }
+                }catch (Exception ex) { MessageBox.Show(ex.Message); }
                
            
         }

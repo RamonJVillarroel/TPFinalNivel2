@@ -41,6 +41,7 @@
             this.txtMarca = new System.Windows.Forms.Label();
             this.txtCate = new System.Windows.Forms.Label();
             this.txtMar = new System.Windows.Forms.Label();
+            this.btnEditar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pboxDetalle)).BeginInit();
             this.SuspendLayout();
             // 
@@ -155,11 +156,22 @@
             this.txtMar.Size = new System.Drawing.Size(0, 13);
             this.txtMar.TabIndex = 12;
             // 
+            // btnEditar
+            // 
+            this.btnEditar.Location = new System.Drawing.Point(29, 344);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar.TabIndex = 13;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
             // ArticuloDetalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(273, 366);
+            this.ClientSize = new System.Drawing.Size(273, 377);
+            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.txtMar);
             this.Controls.Add(this.txtCate);
             this.Controls.Add(this.txtMarca);
@@ -197,5 +209,6 @@
         private System.Windows.Forms.Label txtMarca;
         private System.Windows.Forms.Label txtCate;
         private System.Windows.Forms.Label txtMar;
+        private System.Windows.Forms.Button btnEditar;
     }
 }

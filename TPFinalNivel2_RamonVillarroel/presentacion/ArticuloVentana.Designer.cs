@@ -98,7 +98,7 @@
             // 
             this.cbxMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxMarca.FormattingEnabled = true;
-            this.cbxMarca.Location = new System.Drawing.Point(12, 250);
+            this.cbxMarca.Location = new System.Drawing.Point(12, 308);
             this.cbxMarca.Name = "cbxMarca";
             this.cbxMarca.Size = new System.Drawing.Size(121, 21);
             this.cbxMarca.TabIndex = 5;
@@ -107,7 +107,7 @@
             // 
             this.cbxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCategoria.FormattingEnabled = true;
-            this.cbxCategoria.Location = new System.Drawing.Point(12, 307);
+            this.cbxCategoria.Location = new System.Drawing.Point(12, 250);
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(121, 21);
             this.cbxCategoria.TabIndex = 6;
@@ -225,7 +225,6 @@
             this.Name = "ArticuloVentana";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Articulo";
-          
             ((System.ComponentModel.ISupportInitialize)(this.pboxImgArt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
