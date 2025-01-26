@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace negocio
 {
     public class NegocioArticulo
     {
+        //Listado de Articulos
         public List<Articulo> ListarArticulos()
         {
             List<Articulo> articulos = new List<Articulo>();
@@ -21,19 +23,7 @@ namespace negocio
 
                 while (datos.Lector.Read())
                 {
-                    Articulo articulo = new Articulo();
-                    articulo.IdArticulo = (int)datos.Lector["Id"];
-                    articulo.CodArticulo = (string)datos.Lector["Codigo"];
-                    articulo.NombreArticulo = (string)datos.Lector["Nombre"];
-                    articulo.Descripcion = (string)datos.Lector ["Descripcion"];
-                    articulo.Imagen = (string)datos.Lector["ImagenUrl"];
-                    articulo.Precio = (decimal)datos.Lector["Precio"];
-                    articulo.Categoria = new Categoria();
-                    articulo.Categoria.IdCategoria = (int)datos.Lector["IdCategoria"];
-                    articulo.Categoria.NombreCategoria = (string)datos.Lector["categoria"];
-                    articulo.Marca = new Marca();
-                    articulo.Marca.IdMarca = (int)datos.Lector["IdMarca"];
-                    articulo.Marca.NombreMarca = (string)datos.Lector["marca"];
+                    Articulo articulo = MapearArticulo(datos.Lector);
                     articulos.Add(articulo);
                 }  
                 return articulos;
@@ -46,8 +36,7 @@ namespace negocio
             }
             
         }
-
-
+        //Nuevo Articulo
         public void NuevoArticulo(Articulo NuevoArt)
         {
                  AccesoDatos datos = new AccesoDatos();
@@ -75,7 +64,7 @@ namespace negocio
                 datos.terminarConexion();
             }
         }
-
+        //Editar Articulos
         public void EditarArticulo(Articulo articuloEditar) {
             AccesoDatos datos = new AccesoDatos();
             try
@@ -96,6 +85,7 @@ namespace negocio
             catch (Exception ex) { throw ex; }
             finally { datos.terminarConexion(); }
         }
+        //eliminar un articulo por ID
         public void eliminar(int IdArticulo)
         {
             try
@@ -109,6 +99,105 @@ namespace negocio
             catch (Exception ex) { throw ex; }
 
 
+        }
+        //Mapeo de articulos
+        private Articulo MapearArticulo(IDataReader lector)
+        {
+            return new Articulo
+            {
+                IdArticulo = (int)lector["Id"],
+                CodArticulo = (string)lector["Codigo"],
+                NombreArticulo = (string)lector["Nombre"],
+                Descripcion = (string)lector["Descripcion"],
+                Imagen = (string)lector["ImagenUrl"],
+                Precio = (decimal)lector["Precio"],
+                Categoria = new Categoria
+                {
+                    IdCategoria = (int)lector["IdCategoria"],
+                    NombreCategoria = (string)lector["categoria"]
+                },
+                Marca = new Marca
+                {
+                    IdMarca = (int)lector["IdMarca"],
+                    NombreMarca = (string)lector["marca"]
+                }
+            };
+        }
+        //Consultas para la busqueda
+        public List<Articulo> ListaMayorPrecio()
+        {
+            List<Articulo> articulos = new List<Articulo>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                string consulta = "SELECT a.Id, a.Codigo, a.Nombre, a.Descripcion, a.IdCategoria as IdCategoria, a.IdMarca as IdMarca, a.ImagenUrl, a.Precio, m.Descripcion as marca, c.Descripcion as categoria FROM ARTICULOS AS a inner join CATEGORIAS as c on a.IdCategoria= c.Id inner join MARCAS as m on a.IdMarca= m.Id And Precio > 10000 order by Precio DESC;";
+                datos.nuevaConsulta(consulta);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Articulo articulo = MapearArticulo(datos.Lector);
+                    articulos.Add(articulo);
+                }
+                return articulos;
+
+            }
+            catch (Exception ex) { throw ex; }
+            finally
+            {
+                datos.terminarConexion();
+            }
+        }
+
+        public List<Articulo> ListaMenorPrecio()
+        {
+            List<Articulo> articulos = new List<Articulo>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                string consulta = "SELECT a.Id, a.Codigo, a.Nombre, a.Descripcion, a.IdCategoria as IdCategoria, a.IdMarca as IdMarca, a.ImagenUrl, a.Precio, m.Descripcion as marca, c.Descripcion as categoria FROM ARTICULOS AS a inner join CATEGORIAS as c on a.IdCategoria= c.Id inner join MARCAS as m on a.IdMarca= m.Id And Precio < 10000 order by Precio ASC;";
+                datos.nuevaConsulta(consulta);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Articulo articulo = MapearArticulo(datos.Lector);
+                    articulos.Add(articulo);
+                }
+                return articulos;
+
+            }
+            catch (Exception ex) { throw ex; }
+            finally
+            {
+                datos.terminarConexion();
+            }
+        }
+
+        public List<Articulo> ListaPorCategoria(string categoria)
+        {
+            List<Articulo> articulos = new List<Articulo>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                string consulta = "SELECT a.Id, a.Codigo, a.Nombre, a.Descripcion, a.IdCategoria as IdCategoria, a.IdMarca as IdMarca, a.ImagenUrl, a.Precio, m.Descripcion as marca, c.Descripcion as categoria FROM ARTICULOS AS a inner join CATEGORIAS as c on a.IdCategoria= c.Id inner join MARCAS as m on a.IdMarca= m.Id where  c.Descripcion like '%'+@Categoria+'%';;";
+                datos.Parametro("@Categoria", categoria);
+                datos.nuevaConsulta(consulta);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Articulo articulo = MapearArticulo(datos.Lector);
+                    articulos.Add(articulo);
+                }
+                return articulos;
+
+            }
+            catch (Exception ex) { throw ex; }
+            finally
+            {
+                datos.terminarConexion();
+            }
         }
     }
 }

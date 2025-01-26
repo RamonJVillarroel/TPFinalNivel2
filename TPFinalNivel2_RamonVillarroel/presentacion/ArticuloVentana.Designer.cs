@@ -46,6 +46,7 @@
             this.lbMarca = new System.Windows.Forms.Label();
             this.btnEnviar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.lbPrecioAviso = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pboxImgArt)).BeginInit();
             this.SuspendLayout();
             // 
@@ -196,6 +197,15 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // lbPrecioAviso
+            // 
+            this.lbPrecioAviso.AutoSize = true;
+            this.lbPrecioAviso.Location = new System.Drawing.Point(12, 220);
+            this.lbPrecioAviso.Name = "lbPrecioAviso";
+            this.lbPrecioAviso.Size = new System.Drawing.Size(144, 13);
+            this.lbPrecioAviso.TabIndex = 16;
+            this.lbPrecioAviso.Text = "Separa decimales con coma.";
+            // 
             // ArticuloVentana
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,6 +213,7 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(325, 370);
+            this.Controls.Add(this.lbPrecioAviso);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.lbMarca);
@@ -222,6 +233,8 @@
             this.Controls.Add(this.lbCodArt);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ArticuloVentana";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Articulo";
@@ -250,5 +263,6 @@
         private System.Windows.Forms.Label lbMarca;
         private System.Windows.Forms.Button btnEnviar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Label lbPrecioAviso;
     }
 }

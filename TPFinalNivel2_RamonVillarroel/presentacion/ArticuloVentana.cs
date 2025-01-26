@@ -15,6 +15,7 @@ namespace presentacion
     public partial class ArticuloVentana : Form
     {
         private Articulo articulo = null;
+        private util utilitario = new util();
         public ArticuloVentana()
         {
             InitializeComponent();
@@ -30,7 +31,8 @@ namespace presentacion
             txtNombreArt.Text = articulo.NombreArticulo;
             txtCodArt.Text = articulo.CodArticulo;
             txtDescripcion.Text = articulo.Descripcion;
-            txtPrecio.Text=articulo.Precio.ToString();
+            string precio = Math.Truncate(articulo.Precio).ToString();
+            txtPrecio.Text=precio;
             txtImg.Text = articulo.Imagen;
             cbxMarca.Text = articulo.Marca.NombreMarca;
             cbxCategoria.Text = articulo.Categoria.NombreCategoria;
@@ -59,16 +61,19 @@ namespace presentacion
 
             try
             {
-            
+
                 if (articulo == null)
                     articulo = new Articulo();
-                articulo.CodArticulo = txtCodArt.Text;
-                articulo.NombreArticulo = txtNombreArt.Text;
-                articulo.Descripcion = txtDescripcion.Text;
-                articulo.Precio = int.Parse(txtPrecio.Text);  
-                articulo.Imagen= txtImg.Text;
+
+                articulo.CodArticulo = utilitario.ValidadorCadena50caracteres(txtCodArt.Text);
+                articulo.NombreArticulo = utilitario.ValidadorCadena50caracteres(txtNombreArt.Text);
+                articulo.Descripcion = utilitario.ValidadorCadena150caracteres(txtDescripcion.Text);
+                articulo.Precio = decimal.Parse(txtPrecio.Text);
+                articulo.Imagen = utilitario.ValidadorCadena1000caracteres(txtImg.Text);
                 articulo.Categoria = (Categoria)cbxCategoria.SelectedItem;
                 articulo.Marca = (Marca)cbxMarca.SelectedItem;
+
+
                 if (articulo.IdArticulo != 0)
                 {
                     negocioArticulo.EditarArticulo(articulo);
@@ -81,8 +86,10 @@ namespace presentacion
                 }
                 Close();
             }
-            catch (Exception ex) { throw ex; }
-            
+            catch (Exception ) { //utilitario.MensajeError();    
+            }
+
+
 
         }
         private void cargarCategoria(string categoriaSeleccionada = null)
@@ -98,9 +105,9 @@ namespace presentacion
                     cbxCategoria.SelectedValue = categoriaSeleccionada; 
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.ToString());
+                utilitario.MensajeError();
             }
         }
         private void cargarMarca(string marcaSeleccionada = null)
@@ -116,9 +123,9 @@ namespace presentacion
                     cbxMarca.SelectedValue = marcaSeleccionada;
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                MessageBox.Show(ex.ToString());
+                utilitario.MensajeError();
             }
         }
     }

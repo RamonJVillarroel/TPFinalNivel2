@@ -16,6 +16,7 @@ namespace presentacion
     {
 
         private Articulo articuloDetalle = null;
+        private util utilitario = new util();
         public ArticuloDetalle(Articulo articulo)
         {
             InitializeComponent();
@@ -23,7 +24,8 @@ namespace presentacion
             txtNombre.Text = articulo.NombreArticulo;
             txtCodArt.Text = articulo.CodArticulo;
             txtDes.Text = articulo.Descripcion;
-            txtdiner.Text = articulo.Precio.ToString();
+            string precio =Math.Truncate(articulo.Precio).ToString(); 
+            txtdiner.Text = precio;
             txtMar.Text = articulo.Marca.NombreMarca;
             txtCate.Text = articulo.Categoria.NombreCategoria;
             util utilitarios = new util();
@@ -34,16 +36,11 @@ namespace presentacion
         {   
             try
             {
-                articuloDetalle.CodArticulo = txtCodArt.Text;
-                articuloDetalle.NombreArticulo= txtNombre.Text;
-                articuloDetalle.Descripcion =txtDes.Text;
-                articuloDetalle.Precio = decimal.Parse(txtdiner.Text);
-                articuloDetalle.Imagen = pboxDetalle.ImageLocation;
                 ArticuloVentana ArticuloEditor = new ArticuloVentana(articuloDetalle);
                 ArticuloEditor.ShowDialog();
                 Close();
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ) { utilitario.MensajeError(); }
           
        
 

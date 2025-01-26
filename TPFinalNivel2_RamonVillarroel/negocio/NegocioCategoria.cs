@@ -27,7 +27,6 @@ namespace negocio
                     categoria.IdCategoria = (int)datos.Lector["Id"];
                     categoria.NombreCategoria = (string)datos.Lector["Descripcion"];
                     categorias.Add(categoria);
-
                 }
 
                 return categorias;

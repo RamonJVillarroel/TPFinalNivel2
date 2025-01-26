@@ -185,6 +185,7 @@
             this.Controls.Add(this.txtCodArticulo);
             this.Controls.Add(this.txtNombreDetalle);
             this.Controls.Add(this.pboxDetalle);
+            this.MaximizeBox = false;
             this.Name = "ArticuloDetalle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Detalle del Articulo";

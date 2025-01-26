@@ -58,12 +58,6 @@
     <Compile Include="ArticuloVentana.Designer.cs">
       <DependentUpon>ArticuloVentana.cs</DependentUpon>
     </Compile>
-    <Compile Include="BusquedaVentana.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BusquedaVentana.Designer.cs">
-      <DependentUpon>BusquedaVentana.cs</DependentUpon>
-    </Compile>
     <Compile Include="CatalogoApp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,9 +71,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ArticuloVentana.resx">
       <DependentUpon>ArticuloVentana.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BusquedaVentana.resx">
-      <DependentUpon>BusquedaVentana.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CatalogoApp.resx">
       <DependentUpon>CatalogoApp.cs</DependentUpon>
