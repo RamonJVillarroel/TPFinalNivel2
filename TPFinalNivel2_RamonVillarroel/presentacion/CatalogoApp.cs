@@ -105,7 +105,7 @@ namespace presentacion
             Articulo seleccionado;
             try
             {
-                DialogResult result = MessageBox.Show("Quieres eliminar este activo? no se podra recuperar", "eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("¿Quieres eliminar este activo? no se podra recuperar", "eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
                     seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
@@ -226,7 +226,7 @@ namespace presentacion
             catch (Exception ) { utilitario.MensajeError(); }
             
         }
-        //Modificar la grilla de precio
+        //Modificar la celda de precio
         private void dgvArticulos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dgvArticulos.Columns[e.ColumnIndex].Name == "Precio" && e.Value != null)

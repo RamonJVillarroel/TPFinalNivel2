@@ -9,6 +9,7 @@ namespace negocio
 {
     public class NegocioCategoria
     {
+        //Listado de categorias
         public List<Categoria> ListarCategoria()
         {
             List<Categoria> categorias = new List<Categoria>();

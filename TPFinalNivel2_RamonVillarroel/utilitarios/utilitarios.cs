@@ -46,7 +46,7 @@ namespace utilitarios
             if (string.IsNullOrWhiteSpace(cadena))
             {
                 MessageBox.Show("La cadena ingresada está vacía o es nula. No se puede continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null; // Devuelve null para indicar que no es válida
+                return null;
             }
 
             if (cadena.Length > 50)
@@ -58,7 +58,7 @@ namespace utilitarios
                 }
                 else
                 {
-                    return null; // Si no autoriza recortar, también devuelve null
+                    return null;
                 }
             }
             return cadena;
@@ -89,6 +89,8 @@ namespace utilitarios
         }
 
         // Validar si la cadena tiene 1000 caracteres, si no los tiene, pregunto si autoriza recortarla
+        // Verifica que sea una imagen de internet
+        // Verifica que no este vacia o nula
         public string ValidadorCadena1000caracteres(string cadena)
         {
             if (string.IsNullOrWhiteSpace(cadena))
@@ -96,8 +98,12 @@ namespace utilitarios
                 MessageBox.Show("La cadena ingresada está vacía o es nula. No se puede continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
-
-            if (cadena.Length > 1000)
+            if (!cadena.StartsWith("https://"))
+            {
+                MessageBox.Show($"Cadena: {cadena} no inicia con https://. Solo se permiten imagenes de internet");
+                return null;
+            }
+          if (cadena.Length > 1000)
             {
                 DialogResult resultado = MessageBox.Show("La cadena no puede tener más de 1000 caracteres. Se recortará automáticamente, eliminando las últimas letras.", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (resultado == DialogResult.Yes)

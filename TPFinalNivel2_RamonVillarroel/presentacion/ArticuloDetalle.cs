@@ -17,6 +17,7 @@ namespace presentacion
 
         private Articulo articuloDetalle = null;
         private util utilitario = new util();
+        //Ventana para visualizar el detalle de un articulo
         public ArticuloDetalle(Articulo articulo)
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace presentacion
             util utilitarios = new util();
             utilitarios.CargarImagen(pboxDetalle, articulo.Imagen);
         }
-
+        //Si se quiere editar el articulo, se lo paso a la ventana de editar, que recibe el articulo en cuestion
         private void btnEditar_Click(object sender, EventArgs e)
         {   
             try

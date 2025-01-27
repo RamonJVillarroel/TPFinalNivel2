@@ -16,18 +16,19 @@ namespace presentacion
     {
         private Articulo articulo = null;
         private util utilitario = new util();
+        //Ventana para nueva carga de productos
         public ArticuloVentana()
         {
             InitializeComponent();
             cargarCategoria();
             cargarMarca();
         }
+        //Sobrecar de la clase, para editar un articulo
         public ArticuloVentana(Articulo articulo)
         {
             InitializeComponent();
             cargarCategoria();
             cargarMarca();
-            this.articulo = articulo;
             txtNombreArt.Text = articulo.NombreArticulo;
             txtCodArt.Text = articulo.CodArticulo;
             txtDescripcion.Text = articulo.Descripcion;
@@ -86,12 +87,13 @@ namespace presentacion
                 }
                 Close();
             }
-            catch (Exception ) { //utilitario.MensajeError();    
+            catch (Exception ) {  
             }
 
 
 
         }
+        //carga categorias
         private void cargarCategoria(string categoriaSeleccionada = null)
         {
             try
@@ -110,6 +112,7 @@ namespace presentacion
                 utilitario.MensajeError();
             }
         }
+        //carga de marcas
         private void cargarMarca(string marcaSeleccionada = null)
         {
             try

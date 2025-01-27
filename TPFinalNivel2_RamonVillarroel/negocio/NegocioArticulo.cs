@@ -123,7 +123,7 @@ namespace negocio
                 }
             };
         }
-        //Consultas para la busqueda
+        //Consultas para las busqueda
         public List<Articulo> ListaMayorPrecio()
         {
             List<Articulo> articulos = new List<Articulo>();
