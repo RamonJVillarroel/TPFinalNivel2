@@ -29,6 +29,7 @@ namespace presentacion
             InitializeComponent();
             cargarCategoria();
             cargarMarca();
+            this.articulo = articulo;
             txtNombreArt.Text = articulo.NombreArticulo;
             txtCodArt.Text = articulo.CodArticulo;
             txtDescripcion.Text = articulo.Descripcion;
@@ -59,7 +60,7 @@ namespace presentacion
         private void btnEnviar_Click(object sender, EventArgs e)
         {
             NegocioArticulo negocioArticulo = new NegocioArticulo();
-
+            
             try
             {
 
